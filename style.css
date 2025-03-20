@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #0a192f; /* Dark blue background */
+    color: #ccd6f6; /* Light text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.5s ease-in-out;
+}
+
+.quiz-container {
+    width: 90%;
+    max-width: 600px;
+    background: #112240; /* Darker blue container */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #64ffda; /* Teal accent color */
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #8892b0; /* Light gray text */
+}
+
+#questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 60vh; /* Restricts height */
+    overflow-y: auto; /* Allows scrolling */
+    padding-right: 10px; /* Avoids scrollbar overlap */
+}
+
+.question-box {
+    background: #233554; /* Dark blue question box */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.question-box:hover {
+    transform: translateY(-5px);
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.option-box {
+    background: #1f4068; /* Darker blue option box */
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.option-box:hover {
+    background: #2a4d6e; /* Lighter blue on hover */
+    transform: scale(1.02);
+}
+
+.option-box.selected {
+    background: #64ffda; /* Teal for selected option */
+    color: #0a192f; /* Dark text for contrast */
+}
+
+.option-box.correct {
+    background: #28a745; /* Green for correct answer */
+    color: white;
+}
+
+.option-box.incorrect {
+    background: #dc3545; /* Red for incorrect answer */
+    color: white;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #64ffda; /* Teal button */
+    color: #0a192f; /* Dark text */
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #52d1b2; /* Darker teal on hover */
+    transform: scale(1.05);
+}
+
+#submit {
+    background: #64ffda;
+    color: #0a192f;
+}
+
+#submit:hover {
+    background: #52d1b2;
+}
+
+#reset {
+    background: #ff6b6b; /* Red reset button */
+    color: white;
+}
+
+#reset:hover {
+    background: #ff5252; /* Darker red on hover */
+}
+
+#final-score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #64ffda; /* Teal for final score */
+    margin-top: 20px;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #64ffda; /* Teal confetti */
+    opacity: 0;
+    animation: confetti-fall 5s ease-in forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* For Webkit Browsers (Chrome, Safari) */
+#questions-container::-webkit-scrollbar {
+    width: 8px; /* Slim scrollbar */
+}
+
+#questions-container::-webkit-scrollbar-track {
+    background: #112240; /* Same as quiz container */
+    border-radius: 10px;
+}
+
+#questions-container::-webkit-scrollbar-thumb {
+    background: #64ffda; /* Teal color */
+    border-radius: 10px;
+}
+
+#questions-container::-webkit-scrollbar-thumb:hover {
+    background: #52d1b2; /* Darker teal */
+}
+
+/* Optional: Hide scrollbar in Firefox */
+#questions-container {
+    scrollbar-width: thin;
+    scrollbar-color: #64ffda #112240;
+}
